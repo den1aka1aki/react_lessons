@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Counter from "./counter";
-import {logDOM} from "@testing-library/react";
+
 
 
 const CountersList = () => {
@@ -21,22 +21,25 @@ const CountersList = () => {
     setCounters(initialState)
   }
   const handleIncrement = (id) => {
-      const incrementValue = counters.map((count) => {
+
+         const incrementValue = counters.map((count) => {
           if (count.id === id){
               count.value ++
           }
           return count;
       });
-      setCounters(incrementValue)
-  }
+       setCounters(incrementValue)
+      }
   const handleDecrement =(id) =>{
-    const decrementValue = counters.map((count) =>{
-        if (count.id === id){
-            count.value --
-        }
-        return count;
-    });
-    setCounters(decrementValue);
+
+
+      const decrementtValue = counters.map((count) => {
+          if (count.id === id){
+              count.value --
+          }
+          return count;
+      });
+      setCounters(decrementtValue)
   }
 
   return (
