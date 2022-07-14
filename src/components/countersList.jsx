@@ -21,14 +21,28 @@ const CountersList = () => {
     setCounters(initialState)
   }
   const handleIncrement = (id) => {
-      const newValue = counters.map((n,v) => n.id === id ? n.value += 1 : n.value);
-
+      const incrementValue = counters.map((count) => {
+          if (count.id === id){
+              count.value ++
+          }
+          return count;
+      });
+      setCounters(incrementValue)
+  }
+  const handleDecrement =(id) =>{
+    const decrementValue = counters.map((count) =>{
+        if (count.id === id){
+            count.value --
+        }
+        return count;
+    });
+    setCounters(decrementValue);
   }
 
   return (
     <div>
       {counters.map((count) => (
-        <Counter key={count.id} onDelete={handleDelete} {...count} onIncrement = {handleIncrement}/>
+        <Counter key={count.id} onDelete={handleDelete} {...count} onIncrement = {handleIncrement} onDecrement ={handleDecrement}/>
       ))}
         <button className="btn btn-primary btn-sm n-2" onClick={handleReset}>Сброс</button>
     </div>
